@@ -21,6 +21,7 @@ def is_null(value: Any) -> bool:
         return True
     return False
 
+
 def safe_float(value: Any) -> Optional[float]:
     """Convierte a float. None si es nulo, booleano o no convertible."""
     if is_null(value) or isinstance(value, bool):
@@ -32,3 +33,9 @@ def safe_float(value: Any) -> Optional[float]:
     return None if math.isnan(result) else result
 
 
+def safe_int(value: Any) -> Optional[int]:
+    """Convierte a int (acepta "22" o 22.0). None si no representa un entero."""
+    result = safe_float(value)
+    if result is None or not result.is_integer():
+        return None
+    return int(result)
