@@ -39,3 +39,10 @@ def safe_int(value: Any) -> Optional[int]:
     if result is None or not result.is_integer():
         return None
     return int(result)
+
+
+def safe_str(value: Any) -> Optional[str]:
+    """Devuelve el string limpio (strip) o None si es nulo/vacio."""
+    if is_null(value):
+        return None
+    return str(value).strip()
