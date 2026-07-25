@@ -46,3 +46,17 @@ def safe_str(value: Any) -> Optional[str]:
     if is_null(value):
         return None
     return str(value).strip()
+
+
+def parse_utc_timestamp(value: Any) -> Optional[datetime]:
+    """Parsea un timestap y lo normaliza a UTC. None si no es parseable."""
+    raw = safe_str(value)
+    if raw is None:
+        return None
+    try:
+        parsed = datetime.fromisoformat(raw.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=timezone.utc)
+    return parsed.astimezone(timezone.utc)
