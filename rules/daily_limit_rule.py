@@ -26,13 +26,13 @@ class DailyLimitRule(BaseRule):
         limit = float(self.params.get("daily_limit_usd", self.DEFAULT_LIMIT_USD))
         accumulated = ctx.daily_accumulated_usd
         if accumulated is None:
-            accumulated = safe_float(tx.get("ammount"))
+            accumulated = safe_float(tx.get("amount"))
         if accumulated is None:
             # Sin monto valido no hay acumulado que evaluar; RG-001 rechaza el registro.
             return None
         if accumulated > limit:
             return self.violation(
                 f"Daily limit exceeded: ${accumulated:,.0f} of ${limit:,.0f} allowed",
-                field="ammount",
+                field="amount",
             )
         return None

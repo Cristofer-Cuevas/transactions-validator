@@ -11,7 +11,7 @@ class AmountRule(BaseRule):
 
     rule_id = "RG-001"
     name = "Monto minimo"
-    severity = Severity.CRTICA
+    severity = Severity.CRITICA
     action = RuleAction.REJECT
 
     def evaluate(self, tx: dict, ctx: ValidationContext) -> Optional[Violation]:

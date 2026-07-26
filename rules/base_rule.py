@@ -1,5 +1,5 @@
 """Clases base del motor de reglas: severidades, violaciones, contexto y contrato de regla."""
-from _future_ import annotations
+from __future__ import annotations
 
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
@@ -36,7 +36,7 @@ class Violation:
     def to_dict(self) -> dict:
         """Representacion publica (la acccion us un detalle interno de consolidacion)."""
         return {
-            "rule_id": self.relude_id,
+            "rule_id": self.rule_id,
             "severity": self.severity,
             "message": self.message,
             "field": self.field
