@@ -1,0 +1,53 @@
+# Configuración externalizada del motor de validación
+
+# La ruta de este archivo puede sobreescribirse con la variable de
+# entorno RULES_CONFIG_PATH. Cada regla puede activarse/desactivarse
+# con `enabled` y parametrizarse sin tocar el código.
+
+
+rules:
+  RG-001:                      # Monto mínimo
+    enabled: true
+
+  RG-002:                      # Límite diario por cuenta
+    enabled: true
+    daily_limit_usd: 50000
+
+  RG-003:                      # Frecuencia en cuentas nuevas
+    enabled: true
+    max_daily_tx: 20
+    new_account_max_age_days: 30
+
+  RG-004:                      # Catálogo de monedas aprobadas
+    enabled: true
+    allowed_currencies: [USD, DOP, EUR, CAD, GBP]
+
+  RG-005:                      # Países de alto riesgo -> REVIEW
+    enabled: true
+    high_risk_countries: [IR, KP, SY, CU, VE, MM, AF, YE]
+
+  RG-006:                      # Fondos insuficientes
+    enabled: true
+    debit_types: [WITHDRAWAL, TRANSFER]
+
+  RG-007:                      # Horario inusual -> REVIEW
+    enabled: true
+    start_hour_utc: 2
+    end_hour_utc: 5
+    amount_threshold_usd: 5000
+
+  RG-008:                      # Esquema completo
+    enabled: true
+    # country_code y merchant_category se consideran opcionales:
+    # el dataset trae nulos intencionales en esos campos.
+    required_fields:
+      - transaction_id
+      - account_id
+      - amount
+      - currency
+      - transaction_type
+      - timestamp
+      - account_age_days
+      - daily_tx_count
+      - balance_before
+    valid_transaction_types: [TRANSFER, PAYMENT, WITHDRAWAL, DEPOSIT]
