@@ -1,0 +1,16 @@
+# --- Runtime del motor (Tareas 1 y 2) ---
+pandas>=2.2
+PyYAML>=6.0
+
+# --- Tests ---
+pytest>=8.0
+
+# --- Análisis y SQL (Tareas 3 y 4) ---
+matplotlib>=3.8
+seaborn>=0.13
+duckdb>=1.0
+jupyter>=1.0
+
+# --- Bonus: API REST ---
+fastapi>=0.110
+uvicorn>=0.29
