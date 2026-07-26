@@ -1,0 +1,14 @@
+{
+  "transaction_id": "9b2f1c44-1111-4c3a-9d2e-aaaa00000001",
+  "account_id": "acc-0099",
+  "amount": 61000.0,
+  "currency": "USD",
+  "transaction_type": "TRANSFER",
+  "timestamp": "2025-01-10T03:20:00Z",
+  "country_code": "IR",
+  "merchant_category": "crypto_exchange",
+  "account_age_days": 12,
+  "daily_tx_count": 27,
+  "is_flagged": true,
+  "balance_before": 8000.0
+}

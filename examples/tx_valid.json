@@ -1,0 +1,14 @@
+{
+  "transaction_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "account_id": "acc-0001",
+  "amount": 150.0,
+  "currency": "USD",
+  "transaction_type": "PAYMENT",
+  "timestamp": "2025-01-10T14:30:00Z",
+  "country_code": "DO",
+  "merchant_category": "grocery",
+  "account_age_days": 400,
+  "daily_tx_count": 3,
+  "is_flagged": false,
+  "balance_before": 10000.0
+}
